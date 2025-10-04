@@ -1,0 +1,301 @@
+import React, { useState } from 'react';
+import { User, Phone, MapPin, Home, Users, Church } from 'lucide-react';
+
+export default function ChurchConnectionForm() {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    phone: '',
+    gender: '',
+    maritalStatus: '',
+    state: '',
+    city: '',
+    pinCode: '',
+    address: '',
+    membership: '',
+    connectGroup: '',
+    visitType: '',
+    leaderVideocall: '',
+    prayerRequest: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  return (
+    <div className="min-h-screen bg-black p-4 md:p-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="bg-gradient-to-r from-yellow-700 to-yellow-600 rounded-t-2xl p-6 text-center">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
+            To Connect OR Get Prayed
+          </h1>
+          <p className="text-white text-sm md:text-base italic">
+            "Come unto me, all ye that labour and are heavy laden" - Matthew 11:28
+          </p>
+        </div>
+
+        {/* Form Container */}
+        <div className="bg-gradient-to-b from-gray-900 to-gray-950 rounded-b-2xl p-6 md:p-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            {/* Personal Information */}
+            <div className="bg-gray-800 bg-opacity-50 rounded-xl p-6 border border-gray-700">
+              <div className="flex items-center gap-2 mb-6">
+                <User className="text-yellow-500" size={24} />
+                <h2 className="text-xl font-bold text-white">Personal Information</h2>
+              </div>
+
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-yellow-500 text-sm font-semibold mb-2">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    placeholder="Enter your full name"
+                    className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-yellow-500 text-sm font-semibold mb-2 flex items-center gap-2">
+                    <Phone size={16} />
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="+91 98765 43210"
+                    className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500"
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-yellow-500 text-sm font-semibold mb-2">
+                      Gender *
+                    </label>
+                    <select
+                      name="gender"
+                      value={formData.gender}
+                      onChange={handleChange}
+                      className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-yellow-500"
+                    >
+                      <option value="">Select Gender</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-yellow-500 text-sm font-semibold mb-2">
+                      Marital Status *
+                    </label>
+                    <select
+                      name="maritalStatus"
+                      value={formData.maritalStatus}
+                      onChange={handleChange}
+                      className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-yellow-500"
+                    >
+                      <option value="">Select Marital Status</option>
+                      <option value="single">Single</option>
+                      <option value="married">Married</option>
+                      <option value="divorced">Divorced</option>
+                      <option value="widowed">Widowed</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-yellow-500 text-sm font-semibold mb-2">
+                      State *
+                    </label>
+                    <select
+                      name="state"
+                      value={formData.state}
+                      onChange={handleChange}
+                      className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-yellow-500"
+                    >
+                      <option value="">Select State</option>
+                      <option value="delhi">Delhi</option>
+                      <option value="mumbai">Maharashtra</option>
+                      <option value="karnataka">Karnataka</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-yellow-500 text-sm font-semibold mb-2">
+                      City *
+                    </label>
+                    <select
+                      name="city"
+                      value={formData.city}
+                      onChange={handleChange}
+                      className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-yellow-500"
+                    >
+                      <option value="">Select City</option>
+                      <option value="delhi">Delhi</option>
+                      <option value="mumbai">Mumbai</option>
+                      <option value="bangalore">Bangalore</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-yellow-500 text-sm font-semibold mb-2 flex items-center gap-2">
+                    <MapPin size={16} />
+                    PIN Code *
+                  </label>
+                  <input
+                    type="text"
+                    name="pinCode"
+                    value={formData.pinCode}
+                    onChange={handleChange}
+                    placeholder="Enter PIN code"
+                    className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-yellow-500 text-sm font-semibold mb-2 flex items-center gap-2">
+                    <Home size={16} />
+                    Complete Address *
+                  </label>
+                  <textarea
+                    name="address"
+                    value={formData.address}
+                    onChange={handleChange}
+                    placeholder="Enter your complete address"
+                    rows="3"
+                    className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 resize-none"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Connection Details */}
+            <div className="bg-gray-800 bg-opacity-50 rounded-xl p-6 border border-gray-700">
+              <div className="flex items-center gap-2 mb-6">
+                <Church className="text-yellow-500" size={24} />
+                <h2 className="text-xl font-bold text-white">Connection Details</h2>
+              </div>
+
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-yellow-500 text-sm font-semibold mb-2">
+                    Church Membership
+                  </label>
+                  <select
+                    name="membership"
+                    value={formData.membership}
+                    onChange={handleChange}
+                    className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-yellow-500"
+                  >
+                    <option value="">Select membership status</option>
+                    <option value="member">Member</option>
+                    <option value="visitor">Visitor</option>
+                    <option value="new">New</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-yellow-500 text-sm font-semibold mb-2 flex items-center gap-2">
+                    <Users size={16} />
+                    Connect Group Section
+                  </label>
+                  <select
+                    name="connectGroup"
+                    value={formData.connectGroup}
+                    onChange={handleChange}
+                    className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-yellow-500"
+                  >
+                    <option value="">Select connect group status</option>
+                    <option value="yes">Yes, I want to join</option>
+                    <option value="no">Not interested</option>
+                    <option value="already">Already a member</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-yellow-500 text-sm font-semibold mb-2">
+                    Visit Request
+                  </label>
+                  <select
+                    name="visitType"
+                    value={formData.visitType}
+                    onChange={handleChange}
+                    className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-yellow-500"
+                  >
+                    <option value="">Select visit type</option>
+                    <option value="home">Home Visit</option>
+                    <option value="hospital">Hospital Visit</option>
+                    <option value="office">Office Visit</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-yellow-500 text-sm font-semibold mb-2">
+                    Leader Videocall
+                  </label>
+                  <select
+                    name="leaderVideocall"
+                    value={formData.leaderVideocall}
+                    onChange={handleChange}
+                    className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-yellow-500"
+                  >
+                    <option value="">Select option</option>
+                    <option value="yes">Yes, I would like a call</option>
+                    <option value="no">No, thank you</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            {/* More Details */}
+            <div className="bg-gray-800 bg-opacity-50 rounded-xl p-6 border border-gray-700">
+              <div className="flex items-center gap-2 mb-6">
+                <div className="w-6 h-6 border-2 border-yellow-500 rounded flex items-center justify-center">
+                  <span className="text-yellow-500 text-sm">📝</span>
+                </div>
+                <h2 className="text-xl font-bold text-white">More Details</h2>
+              </div>
+
+              <div>
+                <label className="block text-yellow-500 text-sm font-semibold mb-2">
+                  Please share your prayer request, connection needs, or additional details *
+                </label>
+                <textarea
+                  name="prayerRequest"
+                  value={formData.prayerRequest}
+                  onChange={handleChange}
+                  placeholder="Share your prayer requests, spiritual needs, how we can help connect you with our community, or any other details you'd like us to know. We will keep everything confidential and pray for you."
+                  rows="16"
+                  className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 resize-none"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-end">
+            <button className="px-8 py-3 bg-gray-700 text-white rounded-lg font-semibold hover:bg-gray-600 transition-colors">
+              Cancel
+            </button>
+            <button className="px-8 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black rounded-lg font-bold hover:from-yellow-600 hover:to-yellow-700 transition-colors flex items-center justify-center gap-2">
+              <span>✈️</span>
+              Submit Request
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
