@@ -1,0 +1,331 @@
+import React, { useState } from 'react';
+import { User, Phone, MapPin, Home, Users, Church, Heart, Send, X } from 'lucide-react';
+
+export default function ChurchConnectionForm() {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    phone: '',
+    gender: '',
+    maritalStatus: '',
+    state: '',
+    city: '',
+    pinCode: '',
+    address: '',
+    membership: '',
+    connectGroup: '',
+    visitType: '',
+    leaderVideocall: '',
+    prayerRequest: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = () => {
+    console.log('Form submitted:', formData);
+    alert('Your request has been submitted! We will connect with you soon.');
+  };
+
+  const handleReset = () => {
+    setFormData({
+      fullName: '',
+      phone: '',
+      gender: '',
+      maritalStatus: '',
+      state: '',
+      city: '',
+      pinCode: '',
+      address: '',
+      membership: '',
+      connectGroup: '',
+      visitType: '',
+      leaderVideocall: '',
+      prayerRequest: ''
+    });
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black p-4 md:p-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 rounded-t-3xl p-8 shadow-2xl relative overflow-hidden">
+          <div className="absolute inset-0 bg-black opacity-10"></div>
+          <div className="relative z-10">
+            <div className="flex items-center gap-3 mb-4">
+              <Church className="text-white" size={36} />
+              <div>
+                <h1 className="text-3xl md:text-5xl font-bold text-white mb-2">
+                  Connect With Us
+                </h1>
+                <p className="text-white text-sm md:text-base italic opacity-90">
+                  "Come unto me, all ye that labour and are heavy laden" - Matthew 11:28
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-b-3xl p-6 md:p-10 shadow-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <div className="bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl p-6 shadow-xl border border-gray-600 hover:border-yellow-500 transition-all">
+              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-600">
+                <div className="p-2 bg-yellow-500 bg-opacity-20 rounded-lg">
+                  <User className="text-yellow-400" size={24} />
+                </div>
+                <h2 className="text-2xl font-bold text-white">Personal Info</h2>
+              </div>
+
+              <div className="space-y-5">
+                <div>
+                  <label className="block text-yellow-400 text-sm font-semibold mb-2">
+                    Full Name <span className="text-red-400">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    placeholder="Enter your full name"
+                    className="w-full bg-gray-900 border-2 border-gray-600 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition-all"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-yellow-400 text-sm font-semibold mb-2 flex items-center gap-2">
+                    <Phone size={16} />
+                    Phone Number <span className="text-red-400">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="+91 98765 43210"
+                    className="w-full bg-gray-900 border-2 border-gray-600 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition-all"
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-yellow-400 text-sm font-semibold mb-2">
+                      Gender <span className="text-red-400">*</span>
+                    </label>
+                    <select
+                      name="gender"
+                      value={formData.gender}
+                      onChange={handleChange}
+                      className="w-full bg-gray-900 border-2 border-gray-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition-all"
+                    >
+                      <option value="">Select Gender</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-yellow-400 text-sm font-semibold mb-2">
+                      Marital Status
+                    </label>
+                    <select
+                      name="maritalStatus"
+                      value={formData.maritalStatus}
+                      onChange={handleChange}
+                      className="w-full bg-gray-900 border-2 border-gray-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition-all"
+                    >
+                      <option value="">Select Marital Status</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-yellow-400 text-sm font-semibold mb-2">
+                      State <span className="text-red-400">*</span>
+                    </label>
+                    <select
+                      name="state"
+                      value={formData.state}
+                      onChange={handleChange}
+                      className="w-full bg-gray-900 border-2 border-gray-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition-all"
+                    >
+                      <option value="">Select State</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-yellow-400 text-sm font-semibold mb-2">
+                      City <span className="text-red-400">*</span>
+                    </label>
+                    <select
+                      name="city"
+                      value={formData.city}
+                      onChange={handleChange}
+                      className="w-full bg-gray-900 border-2 border-gray-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition-all"
+                    >
+                      <option value="">Select City</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-yellow-400 text-sm font-semibold mb-2 flex items-center gap-2">
+                    <MapPin size={16} />
+                    PIN Code <span className="text-red-400">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="pinCode"
+                    value={formData.pinCode}
+                    onChange={handleChange}
+                    placeholder="Enter PIN code"
+                    className="w-full bg-gray-900 border-2 border-gray-600 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition-all"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-yellow-400 text-sm font-semibold mb-2 flex items-center gap-2">
+                    <Home size={16} />
+                    Complete Address <span className="text-red-400">*</span>
+                  </label>
+                  <textarea
+                    name="address"
+                    value={formData.address}
+                    onChange={handleChange}
+                    placeholder="Enter your complete address"
+                    rows="3"
+                    className="w-full bg-gray-900 border-2 border-gray-600 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition-all resize-none"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl p-6 shadow-xl border border-gray-600 hover:border-yellow-500 transition-all">
+              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-600">
+                <div className="p-2 bg-yellow-500 bg-opacity-20 rounded-lg">
+                  <Church className="text-yellow-400" size={24} />
+                </div>
+                <h2 className="text-2xl font-bold text-white">Connection</h2>
+              </div>
+
+              <div className="space-y-5">
+                <div>
+                  <label className="block text-yellow-400 text-sm font-semibold mb-2">
+                    Church Membership
+                  </label>
+                  <select
+                    name="membership"
+                    value={formData.membership}
+                    onChange={handleChange}
+                    className="w-full bg-gray-900 border-2 border-gray-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition-all"
+                  >
+                    <option value="">Select membership status</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-yellow-400 text-sm font-semibold mb-2 flex items-center gap-2">
+                    <Users size={16} />
+                    Connect Group
+                  </label>
+                  <select
+                    name="connectGroup"
+                    value={formData.connectGroup}
+                    onChange={handleChange}
+                    className="w-full bg-gray-900 border-2 border-gray-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition-all"
+                  >
+                    <option value="">Select connect group status</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-yellow-400 text-sm font-semibold mb-2">
+                    Visit Request
+                  </label>
+                  <select
+                    name="visitType"
+                    value={formData.visitType}
+                    onChange={handleChange}
+                    className="w-full bg-gray-900 border-2 border-gray-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition-all"
+                  >
+                    <option value="">Select visit type</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-yellow-400 text-sm font-semibold mb-2">
+                    Leader Video Call
+                  </label>
+                  <select
+                    name="leaderVideocall"
+                    value={formData.leaderVideocall}
+                    onChange={handleChange}
+                    className="w-full bg-gray-900 border-2 border-gray-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition-all"
+                  >
+                    <option value="">Select option</option>
+                  </select>
+                </div>
+
+                <div className="mt-8 p-4 bg-yellow-500 bg-opacity-10 border-2 border-yellow-500 border-opacity-30 rounded-xl">
+                  <div className="flex items-start gap-3">
+                    <Heart className="text-yellow-400 mt-1 flex-shrink-0" size={20} />
+                    <div>
+                      <h3 className="text-yellow-400 font-semibold mb-1">How Can We Help?</h3>
+                      <p className="text-gray-300 text-sm">
+                        Share your needs and we'll connect you with our community. All information is kept confidential.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl p-6 shadow-xl border border-gray-600 hover:border-yellow-500 transition-all">
+              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-600">
+                <div className="p-2 bg-yellow-500 bg-opacity-20 rounded-lg">
+                  <Heart className="text-yellow-400" size={24} />
+                </div>
+                <h2 className="text-2xl font-bold text-white">Your Message</h2>
+              </div>
+
+              <div>
+                <label className="block text-yellow-400 text-sm font-semibold mb-2">
+                  Prayer Request & Details <span className="text-red-400">*</span>
+                </label>
+                <textarea
+                  name="prayerRequest"
+                  value={formData.prayerRequest}
+                  onChange={handleChange}
+                  placeholder="Share your prayer requests, spiritual needs, how we can help connect you with our community, or any other details you'd like us to know. We will keep everything confidential and pray for you."
+                  rows="18"
+                  className="w-full bg-gray-900 border-2 border-gray-600 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition-all resize-none"
+                />
+                <p className="text-gray-400 text-xs mt-2 italic">
+                  Your privacy is important to us. All information shared will be kept strictly confidential.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 mt-10 justify-end">
+            <button 
+              onClick={handleReset}
+              className="px-8 py-4 bg-gray-700 hover:bg-gray-600 text-white rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+            >
+              <X size={20} />
+              Cancel
+            </button>
+            <button 
+              onClick={handleSubmit}
+              className="px-8 py-4 bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-600 hover:from-yellow-600 hover:via-amber-600 hover:to-yellow-700 text-gray-900 rounded-xl font-bold transition-all shadow-lg hover:shadow-2xl flex items-center justify-center gap-2"
+            >
+              <Send size={20} />
+              Submit Request
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
